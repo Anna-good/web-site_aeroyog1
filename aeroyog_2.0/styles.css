@@ -1,0 +1,531 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/Gilroy-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/Gilroy-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/Gilroy-RegularItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 24px;
+ 
+   margin-block: 0;
+ }
+ 
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ }
+ 
+ 
+ /**
+   Упрощаем работу с изображениями
+  */
+ img {
+   display: block;
+   max-width: 100%;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+ }
+ 
+ /**
+   Плавный скролл
+  */
+ html,
+ :has(:target) {
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+  */
+ svg *[fill] { fill: currentColor }
+ svg *[stroke] { stroke: currentColor }
+ 
+ /**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+ svg * {
+   transition-property: fill, stroke;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   * {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ }
+
+:root {
+    --color-red-button: #D91141;
+    --color-light-gray: #C4C4C4;
+    --color-dark-gray: #404040;
+    --color-too-dark-gray: #262626;
+    --color-white: #FFFFFF;
+    --color-back-light-gray: #F8F8F8;
+
+    --border-radius: 50px;
+
+    --font-family-base: 'Gilroy','sans-serif';
+    --font-family-extra: 'Montserrat','sans-serif';
+
+    --input-height: 50px;
+    --container-width: 1450px;
+    --container-padding-x: 15px;
+
+    --transition-duration: 0.2s;
+
+    --header-height: 58px;
+
+    --margin-left: 12.23vw;
+}
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+svg * {
+    transition-property: fill, stroke;
+}
+
+svg *[fill] { fill: currentColor }
+svg *[stroke] { stroke: currentColor }
+
+svg:hover {
+    color: var(--color-red-button);
+}
+
+a {
+    color: var(--color-light);
+}
+
+a:hover {
+    color: var(--color-red-button);
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip:rect(0 0 0 0) !important;
+    overflow: hidden !important;
+}
+
+.container-wide {
+    max-width: 1920px;
+    margin-inline: auto;
+}
+
+.container {
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: 60px;
+    padding-inline: 42px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    background-color: var(--color-red-button);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-family: var(--font-family-extra);
+}
+
+
+body {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--color-dark-gray);
+    background-color: var(--color-white);
+}
+
+.title {
+    font-weight: 400;
+    color: var(--color-dark-gray);
+    font-size: 36px;
+    font-family: var(--font-family-base);
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    column-gap: 20px;
+    height: var(--header-height);
+    align-items: center;
+    padding-inline: 22px;
+    background-color: var(--color-back-light-gray);
+    position: absolute;
+    overflow: hidden;
+}
+
+.header-soc1als {
+    display: flex;
+}
+
+.header-soc1als-items:not(:last-child) {
+    margin-right: 18px;
+}
+
+.header-soc1als-items {
+    display: flex;
+    align-items: flex-end;
+}
+
+.header-burger-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 7px;
+    width: 40px;
+    aspect-ratio: 1;
+    padding-left: 8px;
+    color: var(--color-too-dark-gray);
+    background-color: transparent;
+    border: var(--border);
+    cursor: pointer;
+}
+
+.header-burger-button-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-too-dark-gray);
+}
+
+.header-burger-button:hover {
+    row-gap: 5px;
+}
+
+/* Main */
+
+.main-page {
+  background-image: url(./img/first_background.png);
+  text-align: center;
+  background-size: cover;
+}
+
+.main-page-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-page-title {
+  padding-top: 357px;
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding-bottom: 11px;
+}
+
+.main-page-title-text {
+  color: var(--color-white);
+  max-width: 619px;
+  padding-bottom: 25px;
+}
+
+.main-page-button {
+  /* max-width: 277px; */
+  background-color: var(--color-white);
+  color: var(--color-red-button);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 349px;
+}
+
+.main-page-button:hover {
+  opacity: 70%;
+}
+
+
+/* Arguments */
+
+.arguments_points {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 870px;
+  flex-direction: row;
+}
+
+.arguments_title {
+  /* margin: 132px 0px 49px 235px; */
+  max-width: 568px;
+  margin-bottom: 49px;
+}
+
+.arguments_points_1,.arguments_points_2,.arguments_points_3,.arguments_points_4,.arguments_points_5,.arguments_points_6 {
+  width: 280px;
+  margin-bottom: 22px;
+}
+
+.arguments_points_icon {
+  margin-bottom: 16px;
+}
+
+.arguments_points_text {
+  line-height: 22px;
+}
+
+.arguments.board {
+  background-color: var(--color-back-light-gray);
+  flex-direction: column;
+  display: flex;
+  /* padding-right: 295px; */
+  /* position: absolute; */
+  margin-right: 520px;
+  margin-top: -45px;
+}
+
+.arguments_text {
+  margin: 132px 0px 133px 235px;
+}
+
+
+/* Media */
+
+@media (max-width: 1500px) {
+    .title {
+        font-size: 28px;
+    }
+    .arguments_points {
+      max-width: 740px;
+    }
+    .arguments.board {
+      margin-right: 250px;
+    }
+}
+
+@media (max-width: 1240px) {
+  .arguments_text {
+    margin: 132px 0px 133px 120px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-page-button {
+    width: 225px;
+  }
+  .arguments_points_1,.arguments_points_2,.arguments_points_3,.arguments_points_4,.arguments_points_5,.arguments_points_6 {
+    width: 140px;
+    margin-bottom: 22px;
+  }
+  .arguments.board {
+    margin-right: 15px;
+  }
+  
+}
+
+@media(max-width: 767px) {
+    .button {
+        height: 47px;
+        font-size: 12px;
+    }
+    .header-soc1als {
+        display: none;
+    }
+    .main-page {
+      background-image: url(./img/back-small.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .main-page-title {
+      padding-top: 50%;
+    }
+    .arguments_points_icon {
+      width: 36px;
+      aspect-ratio: 1;
+    }
+    .arguments_text {
+      font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header-logo-image {
+        height: 17px;
+        width: 156px;
+    }
+    .header-burger-button {
+        align-items: flex-start;
+    }
+    .header {
+      height: 50px;
+    }
+    body {
+      font-size: 12px;
+    }
+    .main-page-title {
+      padding-top: 130px;
+      font-size: 22px;
+      font-weight: 400;
+      padding-bottom: 7px;
+    }
+    .main-page-title-text {
+      padding-bottom: 27px;
+    }
+    .main-page-button {
+      width: 205px;
+      margin-bottom: 34px;
+      padding: 16px 30px 16px 30px;
+    }
+}
