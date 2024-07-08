@@ -445,7 +445,95 @@ body {
 
 /* Abonements */
 
+.abonements {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 23px;
+  align-items: center;
+  margin-bottom: 140px;
+}
 
+.abonements_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 58px;
+}
+
+.abonements_card {
+  width: 474px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+  text-align: center;
+  box-shadow: -1px -1px 10px #f3f2f2, 20px 0px 17px #f3f2f2;
+  /* margin-bottom: 140px; */
+}
+
+.abonements_card:not(:last-child) {
+  margin-right: 14px;
+}
+
+.abonements_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--color-dark-gray);
+  box-shadow: 20px 30px 17px #f3f2f2;
+}
+
+.abonements_card_type {
+  margin-top: 97px;
+  font-size: 28px;
+}
+
+.abonements_card_header {
+  position: absolute;
+}
+
+.abonements_card_type_includes {
+  margin-top: 22px;
+  font-size: 16px;
+}
+
+.abonements_card_days_week {
+  margin-top: 34px;
+  opacity: 50%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.abonements_card_days_weekend{
+  margin-top: 22px;
+  opacity: 50%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.abonements_card_price {
+  margin-top: 37px;
+  font-size: 36px;
+}
+
+.abonements_card_button {
+  margin-top: 31px;
+  margin-bottom: 82px;
+  color: var(--color-white);
+  font-size: 16px;
+  background-color: var(--color-red-button);
+  padding: 20px 42px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/* About lessons */
+
+.about_lessons_title {
+  margin-top: 140px;
+}
 
 /* Media */
 @media (max-width: 1720px) {
@@ -492,9 +580,6 @@ body {
 }
 
 @media(max-width: 765px) {
-    /* .arguments.board {
-      margin-right: 22px;
-    } */
     .button {
         height: 47px;
         font-size: 12px;
@@ -602,3 +687,5 @@ body {
     background-size: contain;
   }
 }
+
+/* в абонементах настроить нормально font-weight */
