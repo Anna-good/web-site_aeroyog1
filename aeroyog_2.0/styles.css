@@ -440,7 +440,11 @@ body {
   display: flex;
   margin-top: -254px;
   justify-content: flex-end;
+  margin-right: 22px;
 }
+
+/* Abonements */
+
 
 
 /* Media */
@@ -450,7 +454,7 @@ body {
   }
 }
 
-@media (max-width: 1565px) {
+@media (max-width: 1676px) {
     .title {
         font-size: 28px;
     }
@@ -459,7 +463,7 @@ body {
     }
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1260px) {
   .arguments_text {
     margin: 132px 0px 133px 120px;
   }
@@ -470,9 +474,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .main-page-button {
-    width: 225px;
-  }
   .arguments_points {
     max-width: 540px;
   }
@@ -490,7 +491,10 @@ body {
   
 }
 
-@media(max-width: 767px) {
+@media(max-width: 765px) {
+    /* .arguments.board {
+      margin-right: 22px;
+    } */
     .button {
         height: 47px;
         font-size: 12px;
@@ -532,6 +536,9 @@ body {
       width: 276px;
       margin-left: 56px;
       justify-content: start;
+    }
+    .main-page-button {
+      width: 225px;
     }
 }
 
