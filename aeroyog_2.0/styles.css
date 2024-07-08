@@ -484,6 +484,9 @@ body {
   .arguments.board {
     margin-right: 22px;
   }
+  .arguments_title {
+    max-width: 330px;
+  }
   
 }
 
@@ -534,7 +537,7 @@ body {
 
 @media (max-width: 420px) {
     .header-logo-image {
-        height: 17px;
+        height: 15px;
         width: 156px;
     }
     .header-burger-button {
@@ -572,7 +575,7 @@ body {
       margin-bottom: 22px;
     }
     .arguments_text {
-      margin: 132px 0px 87px 22px;
+      margin: 36px 0px 87px 22px;
     }
     .arguments_image_of_woman {
       margin-left: 0px;
@@ -582,5 +585,13 @@ body {
     .title {
       font-size: 22px;
     }
+    .arguments_title {
+      max-width: 232px;
+      margin-bottom: 22px;
+    }
 }
-/*   нужно отредактировать размер картинок из аргументов и все остальное уже легко* */
+@media (max-width: 322px) {
+  .main-page {
+    background-size: contain;
+  }
+}
