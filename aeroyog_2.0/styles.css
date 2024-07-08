@@ -464,7 +464,7 @@ body {
     margin: 132px 0px 133px 120px;
   }
   .arguments_image_of_woman {
-    margin-top: 0px;
+    margin-top: -40px;
     justify-content: center;
   }
 }
@@ -506,6 +506,7 @@ body {
     .arguments_points_icon {
       width: 36px;
       aspect-ratio: 1;
+      margin-bottom: 0px;
     }
     .arguments_text {
       font-size: 14px;
@@ -518,6 +519,10 @@ body {
       margin-bottom: 22px;
       margin-right: 8px;
       padding-right: 0px;
+    }
+    .arguments_points_icon .icon_img {
+      width: 36px;
+      aspect-ratio: 1;
     }
     .arguments_image_of_woman {
       height: 327px;
@@ -573,6 +578,9 @@ body {
       margin-left: 0px;
       justify-content: start;
       margin-top: -25px;
+    }
+    .title {
+      font-size: 22px;
     }
 }
 /*   нужно отредактировать размер картинок из аргументов и все остальное уже легко* */
