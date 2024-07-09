@@ -440,9 +440,114 @@ body {
   display: flex;
   margin-top: -254px;
   justify-content: flex-end;
+  margin-right: 22px;
 }
 
+/* Abonements */
 
+.abonements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 23px;
+  align-items: center;
+  margin-bottom: 140px;
+}
+
+.abonements_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 58px;
+}
+
+.abonements_card {
+  width: 474px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+  text-align: center;
+  box-shadow: -1px -1px 10px #f3f2f2, 20px 0px 17px #f3f2f2;
+}
+
+.abonements_card:not(:last-child) {
+  margin-right: 14px;
+}
+
+.abonements_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--color-dark-gray);
+}
+
+.abonements_card_type {
+  margin-top: 97px;
+  font-size: 28px;
+}
+
+.abonements_card_header {
+  position: absolute;
+  color: var(--color-red-button);
+}
+
+.abonements_card_type_includes {
+  margin-top: 22px;
+  font-size: 16px;
+}
+
+.abonements_card_days_week {
+  margin-top: 34px;
+  opacity: 50%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.abonements_card_days_weekend{
+  margin-top: 22px;
+  opacity: 50%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.abonements_card_price {
+  margin-top: 37px;
+  font-size: 36px;
+}
+
+.abonements_card_button {
+  margin-top: 31px;
+  margin-bottom: 82px;
+  color: var(--color-white);
+  font-size: 16px;
+  background-color: var(--color-red-button);
+  padding: 20px 42px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/* About lessons */
+
+.about_lessons_title {
+  margin-bottom: 20px;
+  margin-top: 68px;
+  font-size: 36px;
+}
+
+.about_lessons_text_and_video {
+  display: flex;
+  margin-left: 50px;
+}
+.about_lessons_video.video {
+  position: absolute;
+  margin-left: 279px;
+}
+
+.about_lessons_text {
+  max-width: 611px;
+  font-size: 16px;
+}
 /* Media */
 @media (max-width: 1720px) {
   .arguments.board {
@@ -450,16 +555,27 @@ body {
   }
 }
 
-@media (max-width: 1565px) {
+@media (max-width: 1676px) {
     .title {
         font-size: 28px;
     }
     .arguments_points {
       max-width: 740px;
     }
+    .abonements_card {
+      width: 374px;
+    }
+    .about_lessons_video.video {
+      margin-left: 110px;
+    }
+    .about_lessons_video.video {
+      width: 446px;
+      height: 273px;
+      /* aspect-ratio: 1; */
+    }
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1260px) {
   .arguments_text {
     margin: 132px 0px 133px 120px;
   }
@@ -467,12 +583,18 @@ body {
     margin-top: -40px;
     justify-content: center;
   }
+  .abonements_cards {
+      flex-direction: column;
+  }
+  .abonements_card:not(:last-child) {
+    margin-bottom: 14px;
+  }
+  .abonements_card {
+    width: 474px;
+  }
 }
 
 @media (max-width: 1024px) {
-  .main-page-button {
-    width: 225px;
-  }
   .arguments_points {
     max-width: 540px;
   }
@@ -484,10 +606,13 @@ body {
   .arguments.board {
     margin-right: 22px;
   }
+  .arguments_title {
+    max-width: 330px;
+  }
   
 }
 
-@media(max-width: 767px) {
+@media(max-width: 765px) {
     .button {
         height: 47px;
         font-size: 12px;
@@ -530,11 +655,55 @@ body {
       margin-left: 56px;
       justify-content: start;
     }
+    .main-page-button {
+      width: 225px;
+    }
+    .abonements_card:not(:last-child) {
+      margin-bottom: 8px;
+      margin-right: 0px;
+    }
+    .abonements_card {
+      width: 276px;
+    }
+    .abonements {
+      margin-top: 0px;
+    }
+    .abonements_title {
+      margin-bottom: 30px;
+    }
+    .abonements_card_type {
+      margin-top: 36px;
+      font-size: 18px;
+    }
+    .abonements_card_type_includes {
+      margin-top: 15px;
+      font-size: 12px;
+    }
+    .abonements_card_days_week {
+      margin-top: 16px;
+      font-size: 12px;
+    }
+    .abonements_card_days_weekend {
+      margin-top: 12px;
+      font-size: 12px;
+    }
+    .abonements_card_time {
+      font-size: 12px;
+    }
+    .abonements_card_price {
+      margin-top: 22px;
+      font-size: 22px;
+    }
+    .abonements_card_button {
+      margin-top: 15px;
+      margin-bottom: 36px;
+      padding: 16px 30px;
+    }
 }
 
 @media (max-width: 420px) {
     .header-logo-image {
-        height: 17px;
+        height: 15px;
         width: 156px;
     }
     .header-burger-button {
@@ -572,7 +741,7 @@ body {
       margin-bottom: 22px;
     }
     .arguments_text {
-      margin: 132px 0px 87px 22px;
+      margin: 36px 0px 87px 22px;
     }
     .arguments_image_of_woman {
       margin-left: 0px;
@@ -582,5 +751,20 @@ body {
     .title {
       font-size: 22px;
     }
+    .arguments_title {
+      max-width: 232px;
+      margin-bottom: 22px;
+    }
+    .abonements_title {
+      font-size: 22px;
+    }
 }
-/*   нужно отредактировать размер картинок из аргументов и все остальное уже легко* */
+@media (max-width: 322px) {
+  .main-page {
+    background-size: contain;
+  }
+}
+
+
+/* Доделать: */
+/* в абонементах настроить нормально font-weight */
