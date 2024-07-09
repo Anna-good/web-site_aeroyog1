@@ -571,6 +571,79 @@ body {
   margin-left: auto;
 }
 
+/* Testimotionials */
+
+.testimotionials {
+  margin-top: 122px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.testimotionials_title.title {
+  margin-bottom: 106px;
+}
+
+.testimotionials_carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.testimotionials_carousel_button_right.svg {
+  transform: scaleX(-1);
+}
+
+.testimotionials_carousel_screens {
+  display: flex;
+  flex-direction: row;
+}
+
+.testimotionials_carousel_button_left,
+.testimotionials_carousel_screens.first,
+.testimotionials_carousel_screens.second,
+.testimotionials_carousel_screens.third {
+  margin-right: 160px;
+}
+
+.testimotionials_carousel_screens.first,
+.testimotionials_carousel_screens.second,
+.testimotionials_carousel_screens.third {
+  display: flex;
+  /* flex-direction: row; */
+  background-image: url(./img/testimonial.png);
+  width: 255.19px;
+  height: 522.56px;
+  /* margin-right: 160px; */
+  z-index: 5;
+}
+
+/* .testimotionials_carousel_screens.first::before,
+.testimotionials_carousel_screens.second::before,
+.testimotionials_carousel_screens.third::before {
+  content: '';
+  background-image: url(./img/shadow-for-phone.png);
+  width: 318px;
+  height: 557px;
+  /* position: static;
+  z-index: 3;
+} */
+
+.testimotionials_carousel_screens.first::after,
+.testimotionials_carousel_screens.second::after,
+.testimotionials_carousel_screens.third::after {
+  content: '';
+  w264
+  background-image: url(./img/phone-frame-main.png);
+  /* z-index: 10; */
+}
+
+/* .testimotionials_carousel_screens::after {
+  background-image: url(./img/phone-frame-main.png);
+} */
+
 /* Media */
 @media (max-width: 1720px) {
   .arguments.board {
@@ -840,3 +913,4 @@ body {
 
 /* Доделать: */
 /* в абонементах настроить нормально font-weight */
+/* .about_lessons_text_and_video не должно быть слева 50 пикселей. Возможно отступ должен быть в другом месте */
