@@ -529,6 +529,10 @@ body {
 
 /* About lessons */
 
+.about_lessons {
+  margin-top: -122px;
+}
+
 .about_lessons_title {
   margin-bottom: 20px;
   margin-top: 68px;
@@ -548,6 +552,25 @@ body {
   max-width: 611px;
   font-size: 16px;
 }
+
+.about_lessons_video_button.button {
+  position: absolute;
+  margin-left: 507px;
+  margin-top: 134px;
+  z-index: 10;
+}
+
+.backgroung_gray_block {
+  background-color: var(--color-back-light-gray);
+  width: 872px;
+  height: 636px;
+  position: absolute;
+  margin-top: -514px;
+  overflow: hidden;
+  position: static;
+  margin-left: auto;
+}
+
 /* Media */
 @media (max-width: 1720px) {
   .arguments.board {
@@ -571,7 +594,10 @@ body {
     .about_lessons_video.video {
       width: 446px;
       height: 273px;
-      /* aspect-ratio: 1; */
+    }
+    .about_lessons_video_button.button {
+      margin-left: 280px;
+      margin-top: 89px;
     }
 }
 
@@ -592,6 +618,32 @@ body {
   .abonements_card {
     width: 474px;
   }
+  .abonements {
+    margin-bottom: 58px;
+  }
+  .about_lessons_text_and_video {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 0px;
+  }
+  .about_lessons_video.video {
+    margin-left: 0px;
+    position: relative;
+  }
+  .about_lessons_video_button.button {
+    position: absolute;
+    margin-left: 160px;
+  }
+  .about_lessons_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 276px;
+    text-align: center;
+  }
+  .about_lessons_title.title {
+    margin-top: 40px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -609,7 +661,6 @@ body {
   .arguments_title {
     max-width: 330px;
   }
-  
 }
 
 @media(max-width: 765px) {
@@ -699,6 +750,23 @@ body {
       margin-bottom: 36px;
       padding: 16px 30px;
     }
+    .about_lessons_video.video {
+      width: 276px;
+      height: 184px;
+    }
+    .about_lessons_video_button.button {
+      width: 58px;
+      height: 58px;
+      margin-left: 109px;
+      margin-top: 70px;
+    }
+    .abonements_card_header svg {
+      width: 50px;
+      height: 20px;
+    }
+    .backgroung_gray_block {
+      margin-left: 44px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -757,6 +825,10 @@ body {
     }
     .abonements_title {
       font-size: 22px;
+    }
+    .backgroung_gray_block {
+      height: 306px;
+      margin-top: -183px;
     }
 }
 @media (max-width: 322px) {
