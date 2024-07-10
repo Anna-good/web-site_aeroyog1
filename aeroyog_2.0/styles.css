@@ -210,6 +210,7 @@
 
     --margin-left: 235px;
 }
+
 a,
 button,
 input,
@@ -601,53 +602,49 @@ body {
   flex-direction: row;
 }
 
-.testimotionials_carousel_button_left,
+/* .testimotionials_carousel_button_left {
+  margin-right: 72px;
+}
+
+.testimotionials_carousel_button_right {
+  margin-left: 72px;
+} */
+
 .testimotionials_carousel_screens.first,
-.testimotionials_carousel_screens.second,
-.testimotionials_carousel_screens.third {
-  margin-right: 160px;
+.testimotionials_carousel_screens.second {
+  margin-right: 14px;
 }
 
 .testimotionials_carousel_screens.first,
 .testimotionials_carousel_screens.second,
 .testimotionials_carousel_screens.third {
   display: flex;
-  /* flex-direction: row; */
-  background-image: url(./img/testimonial.png);
-  width: 255.19px;
-  height: 522.56px;
-  /* margin-right: 160px; */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-image: url(./img/phone-with-shadow.png);
+  width: 474px;
+  height: 686px;
   z-index: 5;
 }
 
-/* .testimotionials_carousel_screens.first::before,
-.testimotionials_carousel_screens.second::before,
-.testimotionials_carousel_screens.third::before {
-  content: '';
-  background-image: url(./img/shadow-for-phone.png);
-  width: 318px;
-  height: 557px;
-  /* position: static;
-  z-index: 3;
-} */
-
-.testimotionials_carousel_screens.first::after,
-.testimotionials_carousel_screens.second::after,
-.testimotionials_carousel_screens.third::after {
-  content: '';
-  w264
-  background-image: url(./img/phone-frame-main.png);
-  /* z-index: 10; */
-}
-
-/* .testimotionials_carousel_screens::after {
-  background-image: url(./img/phone-frame-main.png);
-} */
-
 /* Media */
+@media (max-width: 1850px) {
+  .testimotionials_carousel_button_left {
+    margin-right: 40px;
+  }
+  .testimotionials_carousel_button_right {
+    margin-left: 40px;
+  }
+}
 @media (max-width: 1720px) {
   .arguments.board {
     margin-right: 250px;
+  }
+  .testimotionials_carousel_button_left {
+    margin-right: 20px;
+  }
+  .testimotionials_carousel_button_right {
+    margin-left: 20px;
   }
 }
 
@@ -671,6 +668,10 @@ body {
     .about_lessons_video_button.button {
       margin-left: 280px;
       margin-top: 89px;
+    }
+    .testimotionials_carousel_screens.first,
+    .testimotionials_carousel_screens.third {
+      display: none;
     }
 }
 
@@ -840,6 +841,23 @@ body {
     .backgroung_gray_block {
       margin-left: 44px;
     }
+    .testimotionials_carousel_screens.second {
+      width: 320px;
+      height: 463px;
+      background-size: contain;
+    }
+    .testimotionials_carousel {
+      flex-direction: column;
+    }
+    /* .testimotionials_carousel_button_left {
+      position: absolute;
+      width: 58px;
+      margin-top: 231px;
+      margin-right: 60px;
+    }
+    .testimotionials_carousel_button_right {
+      margin-left: 11px;
+    } */
 }
 
 @media (max-width: 420px) {
