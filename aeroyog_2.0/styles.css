@@ -624,7 +624,7 @@ body {
 /* Footer */
 
 .footer {
-  background-color: var(--color-light-gray);
+  background-color: var(--color-back-light-gray);
   margin-top: 132px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -654,6 +654,81 @@ body {
   justify-content: space-between;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.footer_logo {
+  margin-bottom: 32px;
+}
+
+.footer_phone {
+  margin-bottom: 21px;
+}
+
+.footer-soc1als {
+  margin-bottom: 58px;
+}
+
+.footer_horizontal_line {
+  margin-bottom: 70px;
+  /* color: var(--color-light-gray); */
+  background: linear-gradient(to left, var(--color-back-light-gray), var(--color-light-gray), var(--color-back-light-gray));
+  width: 590px;
+  height: 1px;
+}
+
+.footer_have_any_questions {
+  margin-bottom: 12px;
+}
+
+.footer_give_us_your_questions {
+  margin-bottom: 24px;
+}
+
+.footer_form_with_input_body {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+}
+
+#name {
+  margin-bottom: 35px;
+}
+
+#name,
+#phone {
+  border: none;
+  background-color: var(--color-back-light-gray);
+  font-size: 16px;
+  border-bottom: 1px solid var(--color-light-gray);
+  padding-bottom: 8px;
+  color: var(--color-light-gray);
+}
+
+
+/* input:required:invalid {
+	color: var(--color-red-button);
+  border-bottom: 1px solid var(--color-red-button);
+} */
+
+.footer_input.input:focus {
+  outline: none;
+  color: var(--color-dark-gray);
+}
+
+#name:focus,
+#phone:focus {
+  color: var(--color-dark-gray);
+  border-bottom: 1px solid var(--color-dark-gray);
+}
+
+#phone {
+  margin-bottom: 46px;
+}
+
+.footer_form_with_input_button.button {
+  color: var(--color-white);
+  font-size: 16px;
+  padding: 20px 42px;
 }
 
 /* Media */
@@ -991,6 +1066,10 @@ body {
   }
 }
 
-
-/* Доделать: */
-/* в абонементах настроить нормально font-weight и перпроверить весь сайт на правильные отступы, размеры текста и длину*/
+/* Осталось сделать:
+1) доделать адаптив у footer
+2) настроить везде нормально font-weight
+3) тщательная проверка
+4) вся анимация кнопок
+5) анимация бургер-меню
+6) анимация поля обратной связи */

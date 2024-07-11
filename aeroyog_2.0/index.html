@@ -298,14 +298,15 @@
                     </svg>
                 </a>
             </div>
-            <div class="footer_horizontal_line"><hr></div>
+            <div class="footer_horizontal_line"></div>
             <div class="footer_form">
                 <div class="footer_have_any_questions">Остались вопросы?</div>
                 <div class="footer_give_us_your_questions">Задайте их прямо сейчас</div>
                 <div class="footer_form_body">
-                    <form class="footer_form_with_input">
+                    <form class="footer_form_with_input" formnovalidate>
                         <div class="footer_form_with_input_body">
                             <label for="name" class="visually-hidden">Имя</label>
+                            <!-- <input type="text" class="footer_input input" id="name" placeholder="Имя" required pattern="\S+[A-Z]+[a-z]+"> -->
                             <input type="text" class="footer_input input" id="name" placeholder="Имя">
                             <label for="phone" class="visually-hidden">Телефон</label>
                             <input type="text" class="footer_input input" id="phone" placeholder="Телефон">
