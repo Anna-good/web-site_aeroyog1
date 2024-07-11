@@ -321,15 +321,18 @@ body {
     overflow: hidden;
 }
 
-.header-soc1als {
+.header-soc1als,
+.footer-soc1als {
     display: flex;
 }
 
-.header-soc1als-items:not(:last-child) {
+.header-soc1als-items:not(:last-child),
+.footer-soc1als-items:not(:last-child) {
     margin-right: 18px;
 }
 
-.header-soc1als-items {
+.header-soc1als-items, 
+.footer-soc1als-items{
     display: flex;
     align-items: flex-end;
 }
@@ -616,6 +619,28 @@ body {
   width: 474px;
   height: 686px;
   z-index: 5;
+}
+
+/* Footer */
+
+.footer {
+  background-color: var(--color-light-gray);
+  margin-top: 132px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footer_ask_some_question {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer_form_body {
+  max-width: 380px;
+  flex-grow: 1;
 }
 
 .container.for_arrows {
@@ -968,4 +993,4 @@ body {
 
 
 /* Доделать: */
-/* в абонементах настроить нормально font-weight */
+/* в абонементах настроить нормально font-weight и перпроверить весь сайт на правильные отступы, размеры текста и длину*/
