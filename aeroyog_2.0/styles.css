@@ -628,6 +628,8 @@ body {
   margin-top: 132px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  max-width: 1920px;
+  justify-content: center;
 }
 
 .footer_ask_some_question {
@@ -636,6 +638,8 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  max-height: 764px;
+  overflow: hidden;
 }
 
 .footer_form_body {
@@ -658,6 +662,10 @@ body {
 
 .footer_logo {
   margin-bottom: 32px;
+}
+
+.footer_logo.svg {
+  margin-top: 137px;
 }
 
 .footer_phone {
@@ -725,10 +733,21 @@ body {
   margin-bottom: 46px;
 }
 
-.footer_form_with_input_button.button {
+.footer_form_with_input_button {
   color: var(--color-white);
   font-size: 16px;
   padding: 20px 42px;
+  margin-bottom: 111px;
+}
+
+.footer_location {
+  /* background-size: auto; */
+  background: url(./img/map.png);
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+  /* width="960" height="764" */
+  width: 960px;
+  height: 764px;
 }
 
 /* Media */
@@ -782,6 +801,27 @@ body {
     }
     .backgroung_gray_block {
       margin-left: 44px;
+    }
+    .footer_location {
+      /* justify-content: center; */
+      background-size: contain;
+    }
+    .footer_horizontal_line {
+      width: 245px;
+    }
+}
+
+@media (max-width: 1450px) {
+  .footer {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+      width: 100%;
+      /* justify-content: center; */
+      place-items: center;
+    }
+    .footer_location {
+      width: 100%;
+      background-size: cover;
     }
 }
 
@@ -844,6 +884,15 @@ body {
   }
   .arguments_title {
     max-width: 330px;
+  }
+  .footer_location {
+    width: 100%;
+    height: 100%;
+    /* background-size: contain; */
+    /* margin-bottom: 0px;  */
+  }
+  .footer_logo {
+    margin-top: 41px;
   }
 }
 
@@ -981,6 +1030,18 @@ body {
       flex-direction: column;
       align-items: center ;
     }
+    .footer {
+      margin-top: 58px;
+      grid-template-rows: auto;
+    }
+    .footer_location {
+      background-size: contain;
+      height: 260px;
+      background-position-x: center;
+    }
+    .footer_horizontal_line {
+      width: 276px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -1059,15 +1120,66 @@ body {
     .about_lessons_text {
       font-size: 12px;
     }
+    .footer_logo.svg {
+      width: 179px;
+      height: 15px;
+      margin-bottom: 27px;
+      margin-top: 47px;
+    }
+    .footer_logo {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .footer_phone {
+      font-size: 16px;
+    }
+    .footer-soc1als {
+      margin-bottom: 36px;
+    }
+    .footer_horizontal_line {
+      margin-bottom: 36px;
+    }
+    .footer_have_any_questions {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .footer_give_us_your_questions {
+      font-size: 12px;
+      margin-bottom: 26px;
+    }
+    .footer_form_with_input_body {
+      width: 232px;
+    }
+    #name,
+    #phone {
+      font-size: 12px;
+      /* margin-bottom: 5px; */
+      padding-bottom: 5px;
+    }
+    #name {
+      margin-bottom: 26px;
+    }
+    #phone {
+      margin-bottom: 32px;
+    }
+    .footer_form_with_input_button {
+      font-size: 12px;
+      padding: 16px 30px;
+      margin-bottom: 48px;
+    }
 }
 @media (max-width: 322px) {
   .main-page {
     background-size: contain;
   }
+  .footer_location {
+    max-width: 320px;
+    height: 260px;
+  }
 }
 
 /* Осталось сделать:
-1) доделать адаптив у footer
+1) узнать нормально ли что не норм отображается на больших экранах
 2) настроить везде нормально font-weight
 3) тщательная проверка
 4) вся анимация кнопок
