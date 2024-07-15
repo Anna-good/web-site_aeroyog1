@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Gilroy';
-    src: url('./fonts/Gilroy-LightItalic.woff2') format('woff2');
+    src: url('./fonts/Gilroy-UltraLight.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -14,7 +14,7 @@
 }
 @font-face {
     font-family: 'Gilroy';
-    src: url('./fonts/Gilroy-RegularItalic.woff2') format('woff2');
+    src: url('./fonts/Gilroy-Light.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -25,6 +25,7 @@
     font-weight: 500;
     font-style: normal;
     font-display: swap;
+    /* font-weight: ; */
 }
 @font-face {
     font-family: 'Montserrat';
@@ -387,6 +388,7 @@ body {
   color: var(--color-white);
   max-width: 619px;
   padding-bottom: 25px;
+  font-weight: 500;
 }
 
 .main-page-button {
@@ -395,12 +397,16 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 349px;
+  font-weight: 500;
 }
 
 .main-page-button:hover {
   opacity: 70%;
 }
 
+.main-page-button:active {
+  opacity: 50%;
+}
 
 /* Arguments */
 
@@ -507,6 +513,7 @@ body {
   opacity: 50%;
   font-size: 16px;
   line-height: 20px;
+  font-weight: 500;
 }
 
 .abonements_card_days_weekend{
@@ -514,11 +521,13 @@ body {
   opacity: 50%;
   font-size: 16px;
   line-height: 20px;
+  font-weight: 500;
 }
 
 .abonements_card_price {
   margin-top: 37px;
   font-size: 36px;
+  font-weight: 300;
 }
 
 .abonements_card_button {
@@ -530,6 +539,7 @@ body {
   padding: 20px 42px;
   border-radius: var(--border-radius);
   cursor: pointer;
+  font-weight: 500;
 }
 
 /* About lessons */
@@ -563,6 +573,7 @@ body {
   margin-left: 507px;
   margin-top: 134px;
   z-index: 10;
+  cursor: pointer;
 }
 
 .backgroung_gray_block {
@@ -595,8 +606,25 @@ body {
   align-items: center;
 }
 
+.testimotionials_carousel_button_left.svg {
+  cursor: pointer;
+}
+
 .testimotionials_carousel_button_right.svg {
   transform: scaleX(-1);
+  cursor: pointer;
+}
+
+.testimotionials_carousel_button_left.svg:hover,
+.testimotionials_carousel_button_right.svg:hover {
+  width: 62px;
+  height: 62px;
+}
+
+.testimotionials_carousel_button_left.svg:active,
+.testimotionials_carousel_button_right.svg:active {
+  width: 56px;
+  height: 56px;
 }
 
 .testimotionials_carousel_screens {
@@ -628,8 +656,8 @@ body {
   margin-top: 132px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-width: 1920px;
   justify-content: center;
+  justify-items: center;
 }
 
 .footer_ask_some_question {
@@ -670,6 +698,7 @@ body {
 
 .footer_phone {
   margin-bottom: 21px;
+  font-family: var(--font-family-extra);
 }
 
 .footer-soc1als {
@@ -678,7 +707,6 @@ body {
 
 .footer_horizontal_line {
   margin-bottom: 70px;
-  /* color: var(--color-light-gray); */
   background: linear-gradient(to left, var(--color-back-light-gray), var(--color-light-gray), var(--color-back-light-gray));
   width: 590px;
   height: 1px;
@@ -712,7 +740,6 @@ body {
   color: var(--color-light-gray);
 }
 
-
 /* input:required:invalid {
 	color: var(--color-red-button);
   border-bottom: 1px solid var(--color-red-button);
@@ -738,14 +765,13 @@ body {
   font-size: 16px;
   padding: 20px 42px;
   margin-bottom: 111px;
+  font-family: var(--font-family-extra);
+  font-weight: 500;
 }
 
 .footer_location {
-  /* background-size: auto; */
   background: url(./img/map.png);
   background-repeat: no-repeat;
-  /* background-size: contain; */
-  /* width="960" height="764" */
   width: 960px;
   height: 764px;
 }
@@ -803,7 +829,6 @@ body {
       margin-left: 44px;
     }
     .footer_location {
-      /* justify-content: center; */
       background-size: contain;
     }
     .footer_horizontal_line {
@@ -816,7 +841,6 @@ body {
       grid-template-rows: repeat(2, 1fr);
       grid-template-columns: repeat(1, 1fr);
       width: 100%;
-      /* justify-content: center; */
       place-items: center;
     }
     .footer_location {
@@ -888,8 +912,6 @@ body {
   .footer_location {
     width: 100%;
     height: 100%;
-    /* background-size: contain; */
-    /* margin-bottom: 0px;  */
   }
   .footer_logo {
     margin-top: 41px;
@@ -1035,9 +1057,8 @@ body {
       grid-template-rows: auto;
     }
     .footer_location {
-      background-size: contain;
       height: 260px;
-      background-position-x: center;
+      background-position: center;
     }
     .footer_horizontal_line {
       width: 276px;
@@ -1153,7 +1174,6 @@ body {
     #name,
     #phone {
       font-size: 12px;
-      /* margin-bottom: 5px; */
       padding-bottom: 5px;
     }
     #name {
@@ -1179,9 +1199,9 @@ body {
 }
 
 /* Осталось сделать:
-1) узнать нормально ли что не норм отображается на больших экранах
 2) настроить везде нормально font-weight
 3) тщательная проверка
 4) вся анимация кнопок
 5) анимация бургер-меню
-6) анимация поля обратной связи */
+6) анимация поля обратной связи
+7) анимация всплывающего окна при записи */
