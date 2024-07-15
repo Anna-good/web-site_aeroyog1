@@ -706,10 +706,11 @@ body {
 }
 
 .footer_horizontal_line {
-  margin-bottom: 70px;
+  margin-bottom: 140px;
   background: linear-gradient(to left, var(--color-back-light-gray), var(--color-light-gray), var(--color-back-light-gray));
   width: 590px;
   height: 1px;
+  position: absolute;
 }
 
 .footer_have_any_questions {
@@ -915,6 +916,9 @@ body {
   }
   .footer_logo {
     margin-top: 41px;
+  }
+  .footer_horizontal_line {
+    margin-bottom: 70px;
   }
 }
 
@@ -1159,6 +1163,7 @@ body {
     }
     .footer_horizontal_line {
       margin-bottom: 36px;
+      position: relative;
     }
     .footer_have_any_questions {
       font-size: 18px;
