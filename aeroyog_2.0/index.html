@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script src="script.js"></script>
     <header class="header">
         <div class="header-soc1als">
             <a href="/" class="header-soc1als-items">
@@ -36,33 +37,25 @@
                 width="245" height="22" loading="lazy"
             />
         </a>
-        <button 
+        <div class="burger-menu">
+            <button 
             class="header-burger-button"
             type="button"
-        >
-
-
-        <div class="menu">
-            <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
-            <label for="burger-checkbox" class="burger"></label>
-            <ul class="menu-list">
-                <li><a href="#" class="menu-item first">Почему Аэройога?</a><li>
-                <li><a href="#" class="menu-item">Абонементы</a><li>
-                <li><a href="#" class="menu-item">Как проходят уроки</a><li>
-                <li><a href="#" class="menu-item">Отзывы</a><li>
-                <li><a href="#" class="menu-item last">Контакты</a><li></li>
-                <li><a href="tel:+70663641919" class="footer_phone">+7 066 364 19 19</a></li>
-            </ul>
+            >
+                <div class="menu">
+                    <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+                    <label for="burger-checkbox" class="burger"></label>
+                    <ul class="menu-list">
+                        <li><a href="#arguments" class="menu-item first">Почему Аэройога?</a><li>
+                        <li><a href="#abonements" class="menu-item">Абонементы</a><li>
+                        <li><a href="#about_lessons" class="menu-item">Как проходят уроки</a><li>
+                        <li><a href="#testimotionials" class="menu-item">Отзывы</a><li>
+                        <li><a href="#footer" class="menu-item last">Контакты</a><li></li>
+                        <li><a href="tel:+70663641919" class="footer_phone">+7 066 364 19 19</a></li>
+                    </ul>
+                </div>
+            </button>
         </div>
-
-
-
-            <!-- <span class="visually-hidden">Open menu</span>
-            <span class="header-burger-button-line"></span>
-            <span class="header-burger-button-line"></span>
-            <span class="header-burger-button-line"></span> -->
-                
-        </button>
     </header>
     <main>
         <section class="main-page">
@@ -74,7 +67,7 @@
                 </div>
             </div>
         </section>
-        <section class="arguments">
+        <section id="arguments">
             <div class="arguments board">
                 <div class="arguments_text">
                     <div class="arguments_title title">Почему cледует заниматься Аеройогой?</div>
@@ -159,8 +152,7 @@
                 </div>
             </div>
         </section>
-        <!-- изменить и доделать font-weight в карточках ниже -->
-        <section class="abonements">
+        <section id="abonements">
                 <div class="abonements_title title">Абонементы</div>
                 <div class="abonements_cards">
                     <div class="abonements_card">
@@ -214,7 +206,7 @@
                 </div>
         </section>
         <div class="backgroung_gray_block"></div>
-        <section class="about_lessons">
+        <section id="about_lessons">
             <div class="container">
                 <div class="about_lessons_text_and_video">
                     <div class="about_lessons_text">
@@ -241,7 +233,7 @@
                 </div>
             </div>
         </section>
-        <section class="testimotionials">
+        <section id="testimotionials">
                 <div class="testimotionials_title_with_carousel">
                     <div class="testimotionials_title title">Отзывы довольных клиентов</div>
                     <div class="testimotionials_carousel">
@@ -276,7 +268,7 @@
                 </div>
         </section>
     </main>
-    <footer class="footer">
+    <footer id="footer">
         <div class="footer_location">
         </div>
         <div class="footer_ask_some_question">
@@ -313,13 +305,12 @@
                 <div class="footer_have_any_questions">Остались вопросы?</div>
                 <div class="footer_give_us_your_questions">Задайте их прямо сейчас</div>
                 <div class="footer_form_body">
-                    <form class="footer_form_with_input" formnovalidate>
+                    <form class="footer_form_with_input" novalidate>
                         <div class="footer_form_with_input_body">
                             <label for="name" class="visually-hidden">Имя</label>
-                            <!-- <input type="text" class="footer_input input" id="name" placeholder="Имя" required pattern="\S+[A-Z]+[a-z]+"> -->
-                            <input type="text" class="footer_input input" id="name" placeholder="Имя">
+                            <input type="text" class="footer_input input" id="name" placeholder="Имя" pattern="[A-Za-zА-Яа-я]{3,20}" />
                             <label for="phone" class="visually-hidden">Телефон</label>
-                            <input type="text" class="footer_input input" id="phone" placeholder="Телефон">
+                            <input type="tel" class="footer_input input" id="phone" placeholder="Телефон" pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" minlength="18" maxlength="18" />
                         </div>
                         <button class="footer_form_with_input_button button" type="submit">Отправить</button>
                     </form>    

@@ -160,6 +160,8 @@
      Унифицированный интерлиньяж
     */
    line-height: 1.5;
+
+   /* overflow: hidden; */
  }
  
  /**
@@ -407,7 +409,6 @@ body {
   transform: rotate(-45deg);
   transition: bottom .3s, transform .3s .15s;
 }
-
 .menu-list {
   top: 0;
   left: 0;
@@ -421,42 +422,31 @@ body {
   margin-top: 58px;
   font-family: var(--font-family-base);
   font-weight: 400;
+  z-index: 100;
 }
-
 .menu-item.first {
   margin-top: 168px;
 }
-
 .menu-item.last {
   margin-bottom: 181px;
 }
-
 .menu-item {
   position: relative;
   display: inline-block;
   padding-bottom: -40px;
-  /* padding: 8px; */
   color: var(--color-dark-gray);
   font-size: 36px;
   text-align: center;
   text-decoration: none;
   margin-bottom: 58px;
-  z-index: 30;
 }
-
 .menu-item:hover {
   padding-inline: 20px;
   background: linear-gradient(to bottom,#FFFFFF 50%, rgba(217, 17, 65, 0.2) 26px);
   background-size: 26px;
-  /* background-color: rgba(217, 17, 65, 0.2), #FFFFFF 50%/50%;
-  background-clip: border-box 20px; */
-  /* text-decoration: line-through solid rgba(217, 17, 65, 0.2);
-  text-decoration-thickness: 26px;
-  text-decoration-offset: 20px; */
   transition: .3s;
   color: var(--color-dark-gray);
 }
-
 .burger-checkbox:checked ~ .menu-list {
   transform: translateX(0);
 }
@@ -556,7 +546,7 @@ body {
 
 /* Abonements */
 
-.abonements {
+#abonements {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -644,7 +634,7 @@ body {
 
 /* About lessons */
 
-.about_lessons {
+#about_lessons {
   margin-top: -122px;
 }
 
@@ -688,7 +678,7 @@ body {
 
 /* Testimotionials */
 
-.testimotionials {
+#testimotionials {
   margin-top: 122px;
   display: flex;
   flex-direction: column;
@@ -751,7 +741,7 @@ body {
 
 /* Footer */
 
-.footer {
+#footer {
   background-color: var(--color-back-light-gray);
   margin-top: 132px;
   display: grid;
@@ -845,6 +835,11 @@ body {
 	color: var(--color-red-button);
   border-bottom: 1px solid var(--color-red-button);
 } */
+
+input:invalid:not(:placeholder-shown) {
+	border-bottom-color: red;
+	color: red;
+}
 
 .footer_input.input:focus {
   outline: none;
@@ -1292,7 +1287,22 @@ body {
       padding: 16px 30px;
       margin-bottom: 48px;
     }
+    .menu-item {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    .menu-list {
+      margin-top: 49px;
+    }
+    .menu-item.first {
+      margin-top: 66px;
+    }
+    
+    .menu-item.last {
+      margin-bottom: 81px;
+    }
 }
+
 @media (max-width: 322px) {
   .main-page {
     background-size: contain;
