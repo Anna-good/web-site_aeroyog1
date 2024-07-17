@@ -14,7 +14,7 @@ document.getElementById('phone').addEventListener("keyup", function(){
     this.value=this.value+" ";
   }
 });
-
+ 
 
 function validationMisstakes(form) {
     function removeError(input) {
