@@ -15,6 +15,7 @@ document.getElementById('phone').addEventListener("keyup", function(){
   }
 });
 
+
 function validationMisstakes(form) {
     function removeError(input) {
       const parent = input.parentNode;
