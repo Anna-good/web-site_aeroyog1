@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="script.js"></script>
     <header class="header">
         <div class="header-soc1als">
             <a href="/" class="header-soc1als-items">
@@ -305,18 +304,20 @@
                 <div class="footer_have_any_questions">Остались вопросы?</div>
                 <div class="footer_give_us_your_questions">Задайте их прямо сейчас</div>
                 <div class="footer_form_body">
-                    <form class="footer_form_with_input" novalidate>
+                    <form action="" id="footer_form">
                         <div class="footer_form_with_input_body">
                             <label for="name" class="visually-hidden">Имя</label>
-                            <input type="text" class="footer_input input" id="name" placeholder="Имя" pattern="[A-Za-zА-Яа-я]{3,20}" />
-                            <label for="phone" class="visually-hidden">Телефон</label>
-                            <input type="tel" class="footer_input input" id="phone" placeholder="Телефон" pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" minlength="18" maxlength="18" />
+                            <input type="text" class="footer_input" id="name" placeholder="Имя"/>
+                            <label for="phone" name="tel" class="visually-hidden">Телефон</label>
+                            <input data-min-length="16" data-max-length="16" type="tel" class="footer_input" id="phone" placeholder="Телефон" />
                         </div>
                         <button class="footer_form_with_input_button button" type="submit">Отправить</button>
-                    </form>    
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </footer>
+    <script defer src="script.js"></script>
 </body>
 </html>

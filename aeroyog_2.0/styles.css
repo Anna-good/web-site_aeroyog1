@@ -835,13 +835,15 @@ body {
 	color: var(--color-red-button);
   border-bottom: 1px solid var(--color-red-button);
 } */
-
+/* 
 input:invalid:not(:placeholder-shown) {
 	border-bottom-color: red;
 	color: red;
-}
+} */
 
-.footer_input.input:focus {
+
+
+input.footer_input:focus {
   outline: none;
   color: var(--color-dark-gray);
 }
@@ -871,6 +873,23 @@ input:invalid:not(:placeholder-shown) {
   width: 960px;
   height: 764px;
 }
+
+
+.error.footer_input { /*в случае ошибки подчеркивается снизу красным*/
+  border-bottom: 1px solid var(--color-red-button);
+}
+
+.error .footer_input::-webkit-input-placeholder { /*в случае пустого поля светится красным текст*/
+  color: var(--color-red-button);
+}
+
+.error-label {
+  display: none;
+  /* display: block;
+  color: red;
+  font-size: 13px; */
+} 
+
 
 /* Media */
 @media (max-width: 1850px) {
@@ -1312,6 +1331,7 @@ input:invalid:not(:placeholder-shown) {
     height: 260px;
   }
 }
+
 
 /* Осталось сделать:
 4) вся анимация кнопок
