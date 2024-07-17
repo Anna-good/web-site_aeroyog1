@@ -307,9 +307,13 @@
                     <form action="" id="footer_form">
                         <div class="footer_form_with_input_body">
                             <label for="name" class="visually-hidden">Имя</label>
-                            <input type="text" class="footer_input" id="name" placeholder="Имя"/>
+                            <div class="footer-form-input-box">
+                                <input type="text" class="footer_input" id="name" placeholder="Имя" name="name" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
+                            </div>
                             <label for="phone" name="tel" class="visually-hidden">Телефон</label>
-                            <input data-min-length="16" data-max-length="16" type="tel" class="footer_input" id="phone" placeholder="Телефон" />
+                            <div class="footer-form-input-box">
+                                <input type="tel" class="footer_input" id="phone" placeholder="Телефон" name="phone" data-reg="^((\+7|7|8)+([0-9]){10})$"/>
+                            </div>
                         </div>
                         <button class="footer_form_with_input_button button" type="submit">Отправить</button>
                     </form>
