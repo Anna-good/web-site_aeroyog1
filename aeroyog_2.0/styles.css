@@ -234,6 +234,10 @@ svg:hover {
     color: var(--color-red-button);
 }
 
+svg:active {
+  opacity: 50%;
+}
+
 a {
     color: var(--color-light);
 }
@@ -368,17 +372,18 @@ body {
   position: absolute;
   visibility: hidden;
 }
+
 .burger {
   position: relative;
   z-index: 1;
   cursor: pointer;
   display: block;
-  position: relative;
   border: none;
   background: transparent;
   width: 40px;
   height: 20px;
 }
+
 .burger::before,
 .burger::after {
   content: '';
@@ -389,26 +394,40 @@ body {
   height: 2px;
   background: var(--color-too-dark-gray);
 }
+
 .burger::before {
   top: 0;
   box-shadow: 0 9px 0 #000;
   transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
 }
+
 .burger::after {
   bottom: 0;
   transition: bottom .3s .15s, transform .3s;
 }
+
 .burger-checkbox:checked + .burger::before {
   top: 11px;
   transform: rotate(45deg);
   box-shadow: 0 6px 0 rgba(0,0,0,0);
   transition: box-shadow .15s, top .3s, transform .3s .15s;
 }
+
 .burger-checkbox:checked + .burger::after {
   bottom: 7px;
   transform: rotate(-45deg);
   transition: bottom .3s, transform .3s .15s;
 }
+
+/* Эффект при наведении */
+.burger:hover::before {
+  top: 1px; /* Смещение верхней полоски вниз на 5 пикселей */
+}
+
+.burger:hover::after {
+  bottom: 1px; /* Смещение нижней полоски вверх на 5 пикселей */
+}
+
 .menu-list {
   top: 0;
   left: 0;
@@ -417,19 +436,34 @@ body {
   transform: translateX(-100%);
   transition: .3s;
   width: 100%;
-  height: 100%;
+  height: 922px;
   position: fixed;
   margin-top: 58px;
   font-family: var(--font-family-base);
   font-weight: 400;
   z-index: 100;
 }
+
 .menu-item.first {
   margin-top: 168px;
 }
-.menu-item.last {
+
+a.menu-item.menu-item_last {
   margin-bottom: 181px;
 }
+
+.menu_footer_phone {
+  margin-bottom: 133px;
+  font-size: 22px;
+  font-weight: 400;
+  height: 27px;
+  width: 173px;
+}
+
+.menu-opened {
+  overflow: hidden;
+}
+
 .menu-item {
   position: relative;
   display: inline-block;
@@ -439,7 +473,9 @@ body {
   text-align: center;
   text-decoration: none;
   margin-bottom: 58px;
+  height: 36px;
 }
+
 .menu-item:hover {
   padding-inline: 20px;
   background: linear-gradient(to bottom,#FFFFFF 50%, rgba(217, 17, 65, 0.2) 26px);
@@ -447,10 +483,10 @@ body {
   transition: .3s;
   color: var(--color-dark-gray);
 }
+
 .burger-checkbox:checked ~ .menu-list {
   transform: translateX(0);
 }
-
 
 /* Main */
 
@@ -498,9 +534,9 @@ body {
   opacity: 50%;
 }
 
-.main-page-button:disabled {
+/* .main-page-button:disabled {
   opacity: 100%;
-}
+} */
 
 /* Arguments */
 
@@ -957,13 +993,13 @@ input.error {
       margin-left: 280px;
       margin-top: 89px;
     }
-    .testimotionials_carousel_screens.first,
+    /* .testimotionials_carousel_screens.first,
     .testimotionials_carousel_screens.third {
       display: none;
-    }
-    .container.for_arrows {
+    } */
+    /* .container.for_arrows {
       justify-content: space-around;
-    }
+    } */
     .backgroung_gray_block {
       margin-left: 44px;
     }
@@ -976,9 +1012,17 @@ input.error {
 }
 
 @media (max-width: 1450px) {
-  .footer {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(1, 1fr);
+    .testimotionials_carousel_screens.first,
+    .testimotionials_carousel_screens.third {
+      display: none;
+    }
+    .container.for_arrows {
+      justify-content: space-around;
+    }
+    #footer {
+      grid-template-columns: 1fr;
+      /* grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr); */
       width: 100%;
       place-items: center;
     }
@@ -1048,10 +1092,10 @@ input.error {
   .arguments_title {
     max-width: 330px;
   }
-  .footer_location {
+  /* .footer_location {
     width: 100%;
     height: 100%;
-  }
+  } */
   .footer_logo {
     margin-top: 41px;
   }
@@ -1283,6 +1327,9 @@ input.error {
     .about_lessons_text {
       font-size: 12px;
     }
+    #footer {
+      margin-top: 58px;
+    }
     .footer_logo.svg {
       width: 179px;
       height: 15px;
@@ -1336,14 +1383,27 @@ input.error {
     }
     .menu-list {
       margin-top: 49px;
+      height: 450px;
+    }
+    a.menu-item.menu-item_last {
+      margin-bottom: 81px;
+    }
+    .menu_footer_phone {
+      margin-bottom: 86px;
+      font-size: 14px;
+      height: 17px;
+      width: 111px;
+    }
+    .menu-item {
+      height: 16px;
     }
     .menu-item.first {
       margin-top: 66px;
     }
     
-    .menu-item.last {
+    /* .menu-item.last {
       margin-bottom: 81px;
-    }
+    } */
 }
 
 @media (max-width: 322px) {

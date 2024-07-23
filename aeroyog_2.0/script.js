@@ -169,6 +169,11 @@ form.onsubmit = function () {
     }
 }
 
+
+// скрытие бургер меню
+
+
+
 const menus = document.querySelectorAll('.menu-item');
 const menuButton = document.querySelector('#burger-checkbox')
 
@@ -178,3 +183,30 @@ for (const menu of menus) {
   })
 }
 
+// бурегр меню не будет скролиться если оно открыто
+
+
+
+// Получаем элементы
+const body = document.body;
+
+// Функция для открытия и закрытия меню
+function toggleMenu() {
+    if (menuButton.checked) {
+        body.classList.add('menu-opened');
+    } else {
+        body.classList.remove('menu-opened');
+    }
+}
+
+// Обработчик события для чекбокса
+menuButton.addEventListener('change', toggleMenu);
+
+// Обработчик события для кликов по ссылкам в меню
+const menuItems = document.querySelectorAll('.menu-item');
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        menuButton.checked = false; // Сбрасываем состояние чекбокса
+        toggleMenu(); // Обновляем класс у body
+    });
+});
