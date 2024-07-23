@@ -113,19 +113,38 @@
 // });
 
 
-const form = document.forms["form"];
+let form = document.querySelector('#footer_form'),
+    formInputs = document.querySelectorAll('.footer_input_name'),
+    inputPhone = document.querySelector('.js-input-phone');
 
-form.addEventListener("input", inputHandler);
-
-function inputHandler({target}) {
-  if(target.hasAttribute("data-reg")) {
-    inputCheck(target);
-  }
+function validatePhone(phone) {
+    let re = /^[0-9\s]*$/;
+    return re.test(String(phone));
 }
 
-function inputCheck(el) {
-  const inputValue = el.value;
-  const inputReg = el.getAttribute("data-reg");
-  const reg = new RegExp(inputReg);
-  console.log(inputValue, reg)
+form.onsubmit = function () {
+      let phoneVal = inputPhone.value,
+        emptyInputs = Array.from(formInputs).filter(input => input.value === '');
+
+    formInputs.forEach(function (input) {
+        if (input.value === '') {
+            input.classList.add('error');
+
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    if (emptyInputs.length !== 0) {
+        console.log('inputs not filled');
+        return false;
+    }
+
+    if (!validatePhone(phoneVal)) {
+        console.log('phone not valid');
+        inputPhone.classList.add('error');
+        return false;
+    } else {
+        inputPhone.classList.remove('error');
+    }
 }
