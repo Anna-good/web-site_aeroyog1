@@ -686,9 +686,16 @@ a.menu-item.menu-item_last {
 
 .about_lessons_text_and_video {
   display: flex;
-  margin-left: 50px;
+  justify-content: space-between;
+  /* margin-left: 50px; */
 }
-.about_lessons_video.video {
+
+.about_lessons_text {
+  max-width: 611px;
+  font-size: 16px;
+}
+
+/* .about_lessons_video.video {
   position: absolute;
   margin-left: 279px;
 }
@@ -704,6 +711,32 @@ a.menu-item.menu-item_last {
   margin-top: 134px;
   z-index: 10;
   cursor: pointer;
+} */
+
+.about_lessons_video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_lessons_video.video {
+  /* width: 100%; */
+  max-width: 560px;
+  height: auto;
+}
+
+.about_lessons_video_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: url("./icons/video_button.svg");
+  height: 106px;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border-radius: 0px;
+  background-position: center;
 }
 
 .backgroung_gray_block {
@@ -1009,6 +1042,9 @@ input.error {
     .footer_horizontal_line {
       width: 245px;
     }
+    .about_lessons_text_and_video {
+      margin-left: 50px;
+    }
 }
 
 @media (max-width: 1450px) {
@@ -1074,6 +1110,9 @@ input.error {
   }
   .about_lessons_title.title {
     margin-top: 40px;
+  }
+  .backgroung_gray_block {
+    margin-top: -564px;
   }
 }
 
