@@ -358,15 +358,6 @@ body {
     cursor: pointer;
 }
 
-/* .header-burger-button-line {
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-too-dark-gray);
-}
-
-.header-burger-button:hover {
-    row-gap: 5px;
-} */
 
 .burger-checkbox {
   position: absolute;
@@ -534,10 +525,6 @@ a.menu-item.menu-item_last {
   opacity: 50%;
 }
 
-/* .main-page-button:disabled {
-  opacity: 100%;
-} */
-
 /* Arguments */
 
 .arguments_points {
@@ -687,31 +674,12 @@ a.menu-item.menu-item_last {
 .about_lessons_text_and_video {
   display: flex;
   justify-content: space-between;
-  /* margin-left: 50px; */
 }
 
 .about_lessons_text {
   max-width: 611px;
   font-size: 16px;
 }
-
-/* .about_lessons_video.video {
-  position: absolute;
-  margin-left: 279px;
-}
-
-.about_lessons_text {
-  max-width: 611px;
-  font-size: 16px;
-}
-
-.about_lessons_video_button.button {
-  position: absolute;
-  margin-left: 507px;
-  margin-top: 134px;
-  z-index: 10;
-  cursor: pointer;
-} */
 
 .about_lessons_video {
   position: relative;
@@ -721,7 +689,6 @@ a.menu-item.menu-item_last {
 }
 
 .about_lessons_video.video {
-  /* width: 100%; */
   max-width: 560px;
   height: auto;
 }
@@ -905,6 +872,7 @@ a.menu-item.menu-item_last {
   border-bottom: 1px solid var(--color-light-gray);
   padding-bottom: 8px;
   color: var(--color-light-gray);
+  width: 380px;
 }
 
 .input.footer_input:focus {
@@ -1019,8 +987,6 @@ a.menu-item.menu-item_last {
     }
     #footer {
       grid-template-columns: 1fr;
-      /* grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(1, 1fr); */
       width: 100%;
       place-items: center;
     }
@@ -1397,10 +1363,9 @@ a.menu-item.menu-item_last {
     .menu-item.first {
       margin-top: 66px;
     }
-    
-    /* .menu-item.last {
-      margin-bottom: 81px;
-    } */
+    .input {
+      width: 232px;
+    }
 }
 
 @media (max-width: 322px) {
@@ -1412,10 +1377,3 @@ a.menu-item.menu-item_last {
     height: 260px;
   }
 }
-
-
-/* Осталось сделать:
-4) вся анимация кнопок
-5) анимация бургер-меню
-6) анимация поля обратной связи
-7) анимация всплывающего окна при записи */
