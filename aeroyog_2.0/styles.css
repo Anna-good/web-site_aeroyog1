@@ -457,7 +457,10 @@ a.menu-item.menu-item_last {
 
 .menu-item {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding-bottom: -40px;
   color: var(--color-dark-gray);
   font-size: 36px;
