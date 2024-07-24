@@ -216,20 +216,6 @@
                             Повседневная практика показывает, что сложившаяся структура организации в значительной степени обуславливает создание дальнейших направлений развития. Задача организации, в особенности же сложившаяся структура организации в значительной степени обуславливает создание дальнейших направлений развития.
                         </p>
                     </div>
-                    <!-- <div class="about_lessons_video">
-                        <img 
-                                src="./icons/video_button.svg" 
-                                alt="button for our video"
-                                class="about_lessons_video_button button"
-                                width="106" height="106" loading="lazy"
-                        />
-                        <img 
-                            src="./img/video.png" 
-                            alt="video about our lesson"
-                            class="about_lessons_video video"
-                            width="560" height="373" loading="lazy"
-                        />
-                    </div> -->
                     <div class="about_lessons_video">
                         <video src class="about_lessons_video video" width="560" height="373" poster="./img/video.png"></video>
                         <button class="about_lessons_video_button" type="button" ></button>
@@ -309,15 +295,15 @@
                 <div class="footer_have_any_questions">Остались вопросы?</div>
                 <div class="footer_give_us_your_questions">Задайте их прямо сейчас</div>
                 <div class="footer_form_body">
-                    <form action="" id="footer_form">
+                    <form action="" id="footer_form" novalidate>
                         <div class="footer_form_with_input_body">
                             <label for="name" class="visually-hidden">Имя</label>
                             <div class="footer-form-input-box">
-                                <input type="text" class="footer_input footer_input_name" id="name" placeholder="Имя" name="name" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
+                                <input type="text" class="input footer_input footer_input_name" id="name" placeholder="Имя" name="name" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
                             </div>
                             <label for="phone" name="tel" class="visually-hidden">Телефон</label>
                             <div class="footer-form-input-box">
-                                <input type="tel" class="footer_input footer_input_phone" id="phone" placeholder="Телефон" name="phone" data-reg="^((\+7|7|8)+([0-9]){10})$"/>
+                                <input type="tel" class="input footer_input footer_input_phone" id="phone" placeholder="Телефон" name="phone" data-reg="^((\+7|7|8)+([0-9]){10})$"/>
                             </div>
                         </div>
                         <button class="footer_form_with_input_button button" type="submit">Отправить</button>

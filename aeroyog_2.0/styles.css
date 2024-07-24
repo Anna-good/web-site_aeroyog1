@@ -894,8 +894,11 @@ a.menu-item.menu-item_last {
   margin-bottom: 35px;
 }
 
-#name,
 #phone {
+  margin-bottom: 46px;
+}
+
+.input {
   border: none;
   background-color: var(--color-back-light-gray);
   font-size: 16px;
@@ -904,17 +907,7 @@ a.menu-item.menu-item_last {
   color: var(--color-light-gray);
 }
 
-/* input:required:invalid {
-	color: var(--color-red-button);
-  border-bottom: 1px solid var(--color-red-button);
-} */
-/* 
-input:invalid:not(:placeholder-shown) {
-	border-bottom-color: red;
-	color: red;
-} */
-
-input.footer_input:focus {
+.input.footer_input:focus {
   outline: none;
   color: var(--color-dark-gray);
 }
@@ -923,10 +916,6 @@ input.footer_input:focus {
 #phone:focus {
   color: var(--color-dark-gray);
   border-bottom: 1px solid var(--color-dark-gray);
-}
-
-#phone {
-  margin-bottom: 46px;
 }
 
 .footer_form_with_input_button {
@@ -945,43 +934,23 @@ input.footer_input:focus {
   height: 764px;
 }
 
-
-.error #name { /*в случае ошибки подчеркивается снизу красным*/
+.input.error {
+  color: var(--color-red-button);
   border-bottom: 1px solid var(--color-red-button);
+}
+
+.input.error::placeholder {
   color: var(--color-red-button);
 }
 
-.error #name::-webkit-input-placeholder { /*в случае пустого поля светится красным текст*/
+.checkbox__label {
+  user-select: none;
+}
+
+.checkbox__input.error + .checkbox__label {
   color: var(--color-red-button);
 }
 
-.error #name:checked { /*в случае ошибки подчеркивается снизу красным*/
-  border-bottom: 1px solid var(--color-red-button);
-  color: var(--color-red-button);
-}
-
-.error #phone { /*в случае ошибки подчеркивается снизу красным*/
-  border-bottom: 1px solid var(--color-red-button);
-  color: var(--color-red-button);
-}
-
-.error #phone::-webkit-input-placeholder { /*в случае пустого поля светится красным текст*/
-  color: var(--color-red-button);
-}
-
-
-.error-label {
-  display: none;
-  /* display: block;
-  color: red;
-  font-size: 13px; */
-}
-
-
-input.error {
-  border-bottom: 1px solid var(--color-red-button);
-  color: var(--color-red-button);
-}
 
 
 /* Media */
