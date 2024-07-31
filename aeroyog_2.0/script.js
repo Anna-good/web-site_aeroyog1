@@ -37,45 +37,45 @@ function validateName(name){
 }
 
 form.onsubmit = function () {
-let phoneVal = inputPhone.value,
-    nameVal = inputName.value,
-    emptyInputs = Array.from(formInputs).filter(input => input.value === '');
+    let phoneVal = inputPhone.value,
+        nameVal = inputName.value,
+        emptyInputs = Array.from(formInputs).filter(input => input.value === '');
 
-formInputs.forEach(function (input) {
-    if (input.value === '') {
-        input.classList.add('error');
-    } else {
-        input.classList.remove('error');
+    formInputs.forEach(function (input) {
+        if (input.value === '') {
+            input.classList.add('error');
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    if (emptyInputs.length !== 0) {
+        console.log('inputs not filled');
+        return false;
     }
-});
+    if (!validateName(nameVal)) {
+        console.log('name not valid');
+        inputName.classList.add('error');
+        return false;
+    } else {
+        inputName.classList.remove('error');
+    }
 
-if (emptyInputs.length !== 0) {
-    console.log('inputs not filled');
-    return false;
-}
-if (!validateName(nameVal)) {
-    console.log('name not valid');
-    inputName.classList.add('error');
-    return false;
-} else {
-    inputName.classList.remove('error');
-}
+    if (!validatePhone(phoneVal)) {
+        console.log('phone not valid');
+        inputPhone.classList.add('error');
+        return false;
+    } else {
+        inputPhone.classList.remove('error');
+    }
 
-if (!validatePhone(phoneVal)) {
-    console.log('phone not valid');
-    inputPhone.classList.add('error');
-    return false;
-} else {
-    inputPhone.classList.remove('error');
-}
-
-if (phoneVal.length !== 16) {
-    console.log('phone size valid');
-    inputPhone.classList.add('error');
-    return false;
-} else {
-    inputPhone.classList.remove('error');
-}
+    if (phoneVal.length !== 16) {
+        console.log('phone size valid');
+        inputPhone.classList.add('error');
+        return false;
+    } else {
+        inputPhone.classList.remove('error');
+    }
 }
 
 // скрытие бургер меню
@@ -121,134 +121,158 @@ menuItems.forEach(item => {
 
 // popup window
 
-const popupLinks = document.querySelectorAll('.popup-link');
-const lockPadding = document.querySelectorAll('.lock-padding');
+const openBtn = document.querySelector(".main-page-button");
+const modal = document.querySelector(".modal-overlay");
+const closeBtn = document.querySelector(".close-modal-btn");
 
-let unlock = true;
-
-const timeout = 500;
-
-if (popupLinks.length > 0) {
-    for (let index = 0; index < popupLinks.length; index++) {
-        const popupLink = popupLinks[index];
-        popupLink.addEventListener("click", function(e) {
-            const popupName = popupLink.getAttribute('href').replace('#', '');
-            const curentPopup = document.getElementById(popupName);
-            popupOpen(curentPopup);
-            e.preventDefault();
-        });
-    }
+function openModal() {
+	modal.classList.remove("hide");
 }
 
-const popupCloseIcon = document.querySelectorAll('.close-popup');
-if (popupCloseIcon.length > 0) {
-    for (let index = 0; index < popupCloseIcon.length; index++) {
-        const el = popupCloseIcon[index];
-        el.addEventListener('click', function (e) {
-            popupClose(el.closest('.popup'));
-            e.preventDefault();
-        });
-    }
+function closeModal(e, clickedOutside) {
+	if (clickedOutside) {
+		if (e.target.classList.contains("modal-overlay"))
+			modal.classList.add("hide");
+	} else modal.classList.add("hide");
 }
 
-function popupOpen(curentPopup) {
-    if (curentPopup && unlock) {
-        const popupActive = document.querySelector('.popup.open');
-        if (popupActive) {
-            popupClose(popupActive, false);
-        } else {
-            bodyLock();
-        }
-        curentPopup.classList.add('open');
-        curentPopup.addEventListener("click", function (e) {
-            if (!e.target.closest('.popup__content')) {
-                popupClose(e.target.closest('.popup'));
-            }
-        });
-    }
-}
+openBtn.addEventListener("click", openModal);
+modal.addEventListener("click", (e) => closeModal(e, true));
+closeBtn.addEventListener("click", closeModal);
 
-function popupClose(popupActive, doUnlock = true) {
-    if (unlock) {
-        popupActive.classList.remove('open');
-        if (doUnlock) {
-            bodyUnlock();
-        }
-    }
-}
 
-function bodyLock() {
-    const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+
+
+
+
+// const popupLinks = document.querySelectorAll('.popup-link');
+// const lockPadding = document.querySelectorAll('.lock-padding');
+
+// let unlock = true;
+
+// const timeout = 500;
+
+// if (popupLinks.length > 0) {
+//     for (let index = 0; index < popupLinks.length; index++) {
+//         const popupLink = popupLinks[index];
+//         popupLink.addEventListener("click", function(e) {
+//             const popupName = popupLink.getAttribute('href').replace('#', '');
+//             const curentPopup = document.getElementById(popupName);
+//             popupOpen(curentPopup);
+//             e.preventDefault();
+//         });
+//     }
+// }
+
+// const popupCloseIcon = document.querySelectorAll('.close-popup');
+// if (popupCloseIcon.length > 0) {
+//     for (let index = 0; index < popupCloseIcon.length; index++) {
+//         const el = popupCloseIcon[index];
+//         el.addEventListener('click', function (e) {
+//             popupClose(el.closest('.popup'));
+//             e.preventDefault();
+//         });
+//     }
+// }
+
+// function popupOpen(curentPopup) {
+//     if (curentPopup && unlock) {
+//         const popupActive = document.querySelector('.popup.open');
+//         if (popupActive) {
+//             popupClose(popupActive, false);
+//         } else {
+//             bodyLock();
+//         }
+//         curentPopup.classList.add('open');
+//         curentPopup.addEventListener("click", function (e) {
+//             if (!e.target.closest('.popup__content')) {
+//                 popupClose(e.target.closest('.popup'));
+//             }
+//         });
+//     }
+// }
+
+// function popupClose(popupActive, doUnlock = true) {
+//     if (unlock) {
+//         popupActive.classList.remove('open');
+//         if (doUnlock) {
+//             bodyUnlock();
+//         }
+//     }
+// }
+
+// function bodyLock() {
+//     const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
     
-    if (lockPadding.length > 0) {
-        for (let index = 0; index < lockPadding.length; index++) {
-            const el = lockPadding[index];
-            el.style.paddingRight = lockPaddingValue;
-        }
-    }
+//     if (lockPadding.length > 0) {
+//         for (let index = 0; index < lockPadding.length; index++) {
+//             const el = lockPadding[index];
+//             el.style.paddingRight = lockPaddingValue;
+//         }
+//     }
 
-    for (let index = 0; index < lockPadding.length; index++) {
-        const el = lockPadding[index];
-        el.getElementsByClassName.paddingRight = lockPaddingValue;
-    }
-    body.style.paddingRight = lockPaddingValue;
-    body.classList.add('lock');
+//     for (let index = 0; index < lockPadding.length; index++) {
+//         const el = lockPadding[index];
+//         el.getElementsByClassName.paddingRight = lockPaddingValue;
+//     }
+//     body.style.paddingRight = lockPaddingValue;
+//     body.classList.add('lock');
 
-    unlock = false;
+//     unlock = false;
 
-    setTimeout(function () {
-        unlock = true;
-    }, timeout);
-}
+//     setTimeout(function () {
+//         unlock = true;
+//     }, timeout);
+// }
 
-function bodyUnlock() {
-    setTimeout(function () {
-        if (lockPadding.length > 0) {
-            for (let index = 0; index < lockPadding.length; index++) {
-                const el = lockPadding[index];
-                el.style.paddingRight = '0px';
-            }
-        }
-        body.style.paddingRight = '0px';
-        body.classList.remove('lock');
-    }, timeout);
+// function bodyUnlock() {
+//     setTimeout(function () {
+//         if (lockPadding.length > 0) {
+//             for (let index = 0; index < lockPadding.length; index++) {
+//                 const el = lockPadding[index];
+//                 el.style.paddingRight = '0px';
+//             }
+//         }
+//         body.style.paddingRight = '0px';
+//         body.classList.remove('lock');
+//     }, timeout);
 
-    unlock = false;
-    setTimeout(function () {
-        unlock = true;
-    }, timeout);
-}
+//     unlock = false;
+//     setTimeout(function () {
+//         unlock = true;
+//     }, timeout);
+// }
 
-document.addEventListener('keydown', function (e) {
-    if (e.which === 27) {
-        const popupActive = document.querySelector('.popup.open');
-        popupClose(popupActive);
-    }
-})
+// document.addEventListener('keydown', function (e) {
+//     if (e.which === 27) {
+//         const popupActive = document.querySelector('.popup.open');
+//         popupClose(popupActive);
+//     }
+// })
 
-// polifiles for popup window
+// // polifiles for popup window
 
-(function () {
-    // проверяем поддержку
-    if (!Element.prototype.closest) {
-        // реализуем
-        Element.prototype.closest = function(css) {
-            var node = this;
-            while (node) {
-                if (node.matches(css)) return node;
-                else npde = node.parentElement;
-            }
-            return null;
-        };
-    }
-})();
-(function () {
-    // проверяем поддержку
-    if (!Element.prototype.matches) {
-        // определяем свойство
-        Element.prototype.matches = Element.prototype.matchesSelector ||
-            Element.prototype.webkitMatchesSelector ||
-            Element.prototype.mozMatchesSelector ||
-            Element.prototype.msMatchesSelector;
-    }
-})();
+// (function () {
+//     // проверяем поддержку
+//     if (!Element.prototype.closest) {
+//         // реализуем
+//         Element.prototype.closest = function(css) {
+//             var node = this;
+//             while (node) {
+//                 if (node.matches(css)) return node;
+//                 else npde = node.parentElement;
+//             }
+//             return null;
+//         };
+//     }
+// })();
+// (function () {
+//     // проверяем поддержку
+//     if (!Element.prototype.matches) {
+//         // определяем свойство
+//         Element.prototype.matches = Element.prototype.matchesSelector ||
+//             Element.prototype.webkitMatchesSelector ||
+//             Element.prototype.mozMatchesSelector ||
+//             Element.prototype.msMatchesSelector;
+//     }
+// })();

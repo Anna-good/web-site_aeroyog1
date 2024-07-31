@@ -884,7 +884,8 @@ a.menu-item.menu-item_last {
 }
 
 #name:focus,
-#phone:focus {
+#phone:focus,
+#comments:focus {
   color: var(--color-dark-gray);
   border-bottom: 1px solid var(--color-dark-gray);
 }
@@ -925,76 +926,84 @@ a.menu-item.menu-item_last {
 
 /* Popup */
 
-body.lock {
-  overflow: hidden;
-}
 
-.popup {
+.modal-overlay { /*задний фон у модального окна*/
+  background: rgba(64, 64, 64, 0.7);
+  width: 100%;
+  height: 100%;
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(64, 64, 64, 0.7);
   top: 0;
+  bottom: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease 0s;
+  right: 0;
 }
 
-.popup.open {
-  opacity: 1;
-  visibility: visible;
+.modal-wrapper {
+  width: 443px;
+  background: ghostwhite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.popup.open .popup__content {
-  /* transform: translate(0px, 0px); */
-  transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
-  opacity: 1;
-}
-
-.popup__body {
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 10px;
-}
-
-.popup__content {
-  background-color: var(--color-white);
-  color: var(--color-dark-gray);
-  max-width: 443px;
-  padding: 75px 48px 62px 48px;
-  position: relative;
-  transition: all 0.5s ease 0s;
-  opacity: 0;
-  /* transform: translate(0px, -100%); */
-  transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-}
-
-.popup__close {
-  position: absolute;
-  right: 22px;
-  top: 22px;
+.close-modal-btn{
+  margin-left: auto;
+  margin-top: 22px;
+  margin-right: 22px;
   cursor: pointer;
+  padding: 0px;
+  height: 14px;
+  background: none;
 }
 
-.popup__title {
-  font-size: 28px;
+.close-btn-wrapper {
+  display: flex;
 }
 
-.popup__text {
-  font-size: 16px;
-}
-
-/* .popup_area {
-  position: absolute;
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 39px;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-} */
+}
 
+.modal-title {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.modal-text {
+  margin-top: 8px;
+  font-size: 16px;
+  opacity: 70%;
+  width: 293px;
+  margin-bottom: 52px;
+}
+
+.modal_form_inputs {
+  width: 347px;
+}
+
+.modal-form.input {
+  width: 347px;
+}
+
+.modal-form#phone {
+  margin-bottom: 35px;
+}
+.modal-form.button {
+  margin-bottom: 62px;
+}
+
+.modal-form#comments {
+  margin-bottom: 77px;
+}
+
+.hide {
+  display: none;
+}
 
 /* Media */
 @media (max-width: 1850px) {
