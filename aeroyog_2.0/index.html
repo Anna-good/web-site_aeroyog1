@@ -69,7 +69,7 @@
                         </button>
                     </div>
                  
-                    <div class="modal-overlay hide">
+                    <!-- <div class="modal-overlay hide">
                         <div class="modal-wrapper">
                             <div class="close-btn-wrapper">
                                 <button class="close-modal-btn">
@@ -79,25 +79,25 @@
                             <div class="modal-content">
                                 <div class="modal-title">Связаться с нами</div>
                                 <div class="modal-text">Введите некоторую информацию, и наш менеджер свяжеться с вами в ближейшее время!</div>
-                                <form action="" id="modal-form footer_form" novalidate>
-                                    <div class="modal_form_inputs footer_form_with_input_body">
+                                <form action="" id="footer_form" novalidate>
+                                    <div class="footer_form_with_input_body">
                                         <label for="name" class="visually-hidden">Имя</label>
-                                        <div class="modal-form-box footer-form-input-box">
+                                        <div class="footer-form-input-box">
                                             <input type="text" class="modal-form input footer_input footer_input_name" id="name" placeholder="Имя" name="name" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
                                         </div>
                                         <label for="phone" name="tel" class="visually-hidden">Телефон</label>
-                                        <div class="modal-form-box footer-form-input-box">
+                                        <div class="footer-form-input-box">
                                             <input type="tel" class="modal-form input footer_input footer_input_phone" id="phone" placeholder="Телефон" name="phone" data-reg="^((\+7|7|8)+([0-9]){10})$"/>
                                         </div>
-                                        <div class="modal-form-box footer-form-input-box">
+                                        <div class="footer-form-input-box">
                                             <input type="text" class="modal-form input footer_input footer_input_comments" id="comments" placeholder="Ваши комментарии" name="comments" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
                                         </div>
                                     </div>
-                                    <button class="modal-form footer_form_with_input_button button" type="submit">Отправить</button>
+                                    <button class="footer_form_with_input_button button" id="submit_button" type="submit">Отправить</button>
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -291,6 +291,35 @@
                     </div>
                 </div>
         </section>
+        <div class="modal-overlay hide">
+            <div class="modal-wrapper">
+                <div class="close-btn-wrapper">
+                    <button class="close-modal-btn">
+                        <img src="./icons/close_icon.png" alt="close the window icon">
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-title">Связаться с нами</div>
+                    <div class="modal-text">Введите некоторую информацию, и наш менеджер свяжеться с вами в ближейшее время!</div>
+                    <form action="" id="modal_form" novalidate>
+                        <div class="footer_form_with_input_body">
+                            <label for="name" class="visually-hidden">Имя</label>
+                            <div class="footer-form-input-box">
+                                <input type="text" class="modal-form input footer_input footer_input_name" id="name" placeholder="Имя" name="name" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
+                            </div>
+                            <label for="phone" name="tel" class="visually-hidden">Телефон</label>
+                            <div class="footer-form-input-box">
+                                <input type="tel" class="modal-form input footer_input footer_input_phone" id="phone" placeholder="Телефон" name="phone" data-reg="^((\+7|7|8)+([0-9]){10})$"/>
+                            </div>
+                            <div class="footer-form-input-box">
+                                <input type="text" class="modal-form input footer_input footer_input_comments" id="comments" placeholder="Ваши комментарии" name="comments" data-reg="^[A-ZА-Я][a-zа-я]*$"/>
+                            </div>
+                        </div>
+                        <button class="footer_form_with_input_button button" id="submit_button" type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
     <footer id="footer">
         <div class="footer_location">
