@@ -1,89 +1,200 @@
+let formInputs = document.querySelectorAll('.footer_input'),
+inputPhone = document.querySelectorAll('.footer_input_phone'),
+inputName = document.querySelectorAll('.footer_input_name'),
+inputComments = document.querySelector('.footer_input_comments')
+sendBtn = document.querySelector("#submit_button"),
 
-let form = document.querySelector('#footer_form'),
-formInputs = document.querySelectorAll('.footer_input'),
-inputPhone = document.querySelector('.footer_input_phone'),
-inputName = document.querySelector('.footer_input_name');
+openBtn = document.querySelector(".main-page-button"),
+openBtnModal = document.querySelectorAll(".abonements_card_button"),
+modal = document.querySelector(".modal-overlay"),
+closeBtn = document.querySelector(".close-modal-btn"),
 
-// phone
+menus = document.querySelectorAll('.menu-item'),
+menuButton = document.querySelector('#burger-checkbox'),
 
-// добавление + в самое начало у телефона при фокусе
-// Проверяем фокус
-inputPhone.addEventListener('focus', () => {
-  // Если там ничего нет или есть, но левое
-  if(!/^\+\d*$/.test(inputPhone.value))
-  // То вставляем знак плюса как значение
-  inputPhone.value = '+7 ';
-});
+body = document.body,
 
-inputPhone.addEventListener("keyup", function() {
-  // добавление пробелов между цифрами у телефона
-  let txt=this.value;
-  if (txt.length==2 || txt.length==6 || txt.length==10 || txt.length==13) {
-    this.value=this.value+" ";
-  }
-});
+menuItems = document.querySelectorAll('.menu-item'),
 
-function validatePhone(phone) {
-  let re = /^\+7 \d{3} \d{3} \d{2} \d{2}$/;
-  return re.test(String(phone));
-}
+modalForm = document.querySelector('#modal_form'),
+feedbackForm = document.querySelector('#footer_form');
 
 
-// name
+// FORMS_VALIDATION
+//------------------------------------------------------------------
 
-function validateName(name){
-  let res = /^[A-ZА-Я][a-zа-я]{1,19}$/;
-  return res.test(String(name));
-}
+// Функция для проверки формы
+function validateForm(form) {
+    let isValid = true;
 
-form.onsubmit = function () {
-    let phoneVal = inputPhone.value,
-        nameVal = inputName.value,
-        emptyInputs = Array.from(formInputs).filter(input => input.value === '');
+    const inputs = form.querySelectorAll('input');
 
-    formInputs.forEach(function (input) {
-        if (input.value === '') {
-            input.classList.add('error');
-        } else {
-            input.classList.remove('error');
+    // Проверяем каждое поле ввода в форме
+    inputs.forEach(input => {
+
+        if (input.name === 'phone') {
+            if (!validatePhone(input.value)) {
+                isValid = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
+        } if (input.name === 'name') {
+            if (!validateName(input.value)) {
+                isValid = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
         }
     });
 
-    if (emptyInputs.length !== 0) {
-        console.log('inputs not filled');
-        return false;
-    }
-    if (!validateName(nameVal)) {
-        console.log('name not valid');
-        inputName.classList.add('error');
-        return false;
-    } else {
-        inputName.classList.remove('error');
-    }
+    return isValid; // Возвращаем результат валидации
+}
 
-    if (!validatePhone(phoneVal)) {
-        console.log('phone not valid');
-        inputPhone.classList.add('error');
-        return false;
-    } else {
-        inputPhone.classList.remove('error');
-    }
 
-    if (phoneVal.length !== 16) {
-        console.log('phone size valid');
-        inputPhone.classList.add('error');
-        return false;
+// Обработчик для модального окна
+if (modalForm) {
+    modalForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Отменяем стандартное поведение отправки формы
+
+        if (validateForm(modalForm)) {
+            console.log('Модальная форма успешно отправлена!');
+
+            modalForm.reset(); // Очищаем поля формы
+            closeModal();
+            openBtn.classList.add("no-visibillity");
+            openBtn.disabled = true;
+    
+            openBtnModal.forEach(button => {
+                button.classList.add("no-visibillity-buttons");
+                button.disabled = true;
+            });
+            
+        } else {
+            console.log('Модальная форма содержит ошибки!');
+        }
+    });
+}
+
+// Обработчик для формы обратной связи
+if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Отменяем стандартное поведение отправки формы
+
+        if (validateForm(feedbackForm)) {
+            console.log('Форма обратной связи успешно отправлена!');
+            feedbackForm.reset(); // Очищаем поля формы
+        } else {
+            console.log('Форма обратной связи содержит ошибки!');
+        }
+    });
+}
+
+
+// POPUP_WINDOW
+// ---------------------------------------------------------
+
+// функция открытия модального окна
+function openModal() {
+	modal.classList.remove("hide");
+    document.body.classList.add('no-scroll');
+    clearForm();
+}
+
+// Функция для очистки формы
+function clearForm() {
+    formInputs.forEach(input => {
+      input.value = '';
+      input.classList.remove('error');
+    });
+}
+
+function closeModal(e, clickedOutside) {
+	if (clickedOutside) {
+		if (e.target.classList.contains("modal-overlay"))
+			modal.classList.add("hide");
+            document.body.classList.remove('no-scroll');
     } else {
-        inputPhone.classList.remove('error');
+        modal.classList.add("hide");
+        document.body.classList.remove('no-scroll');
     }
 }
 
+openBtn.addEventListener("click", openModal);
+modal.addEventListener("click", (e) => closeModal(e, true));
+closeBtn.addEventListener("click", closeModal);
+
+// открытие модального окна при нажатии на нужную кнопку
+document.addEventListener('DOMContentLoaded', function() {
+    openBtnModal.forEach(button => {
+        button.addEventListener('click', function() {
+            // Код для обработки клика
+            console.log('Кнопка нажата:', button);
+            openModal();
+        });
+    });
+});
+
+//name
+// Функция для валидации имени
+function validateName(name) {
+    let res = /^([A-ZА-Я][a-zа-я]{1,19})(\s[A-ZА-Я][a-zа-я]{1,19})*$/;
+    return res.test(String(name));
+}
+
+// phone
+// Добавление + в самое начало телефона при фокусе
+inputPhone.forEach(inputPhone => {
+    inputPhone.addEventListener('focus', () => {
+      if (!/^\+\d*$/.test(inputPhone.value)) {
+        inputPhone.value = '+7 ';
+      }
+    });
+  
+    // Добавление пробелов между цифрами у телефона
+    inputPhone.addEventListener("keyup", function() {
+      let txt = this.value;
+      if (txt.length == 2 || txt.length == 6 || txt.length == 10 || txt.length == 13) {
+        this.value = this.value + " ";
+      }
+    });
+});
+
+inputName.forEach(inputName => {
+    // Приводим первую букву к заглавной при уходе фокуса
+    inputName.addEventListener('blur', function() {
+        const words = this.value.split(' '); // Разделяем строку на слова
+        for (let i = 0; i < words.length; i++) {
+            if (words[i]) { // Проверяем, что слово не пустое
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase(); // Приводим первую букву к заглавной и остальные к строчным
+            }
+        }
+        this.value = words.join(' '); // Объединяем слова обратно в строку
+    });
+});
+
+inputComments.addEventListener('blur', function() {
+    const words = this.value.split(' '); // Разделяем строку на слова
+    for (let i = 0; i < words.length; i++) {
+        if (words[0]) { // Проверяем, что слово не пустое
+            words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase(); // Приводим первую букву к заглавной и остальные к строчным
+        }
+    }
+    this.value = words.join(' '); // Объединяем слова обратно в строку
+});
+
+  
+// Функция валидации телефона
+function validatePhone(phone) {
+    let re = /^\+7 \d{3} \d{3} \d{2} \d{2}$/;
+    return re.test(String(phone));
+}
+
+// BURGER_MENU
+// -------------------------------------------------------------
+
 // скрытие бургер меню
-
-
-const menus = document.querySelectorAll('.menu-item');
-const menuButton = document.querySelector('#burger-checkbox')
-
 for (const menu of menus) {
   menu.addEventListener('click', () => {
     menuButton.checked = !menuButton.checked
@@ -91,18 +202,11 @@ for (const menu of menus) {
 }
 
 // бурегр меню не будет скролиться если оно открыто
-
-
-
-// Получаем элементы
-const body = document.body;
-
-// Функция для открытия и закрытия меню
 function toggleMenu() {
     if (menuButton.checked) {
-        body.classList.add('menu-opened');
+        body.classList.add('no-scroll');
     } else {
-        body.classList.remove('menu-opened');
+        body.classList.remove('no-scroll');
     }
 }
 
@@ -110,7 +214,6 @@ function toggleMenu() {
 menuButton.addEventListener('change', toggleMenu);
 
 // Обработчик события для кликов по ссылкам в меню
-const menuItems = document.querySelectorAll('.menu-item');
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
         menuButton.checked = false; // Сбрасываем состояние чекбокса
@@ -119,160 +222,8 @@ menuItems.forEach(item => {
 });
 
 
-// popup window
+// Сделать осталось:
 
-const openBtn = document.querySelector(".main-page-button");
-const modal = document.querySelector(".modal-overlay");
-const closeBtn = document.querySelector(".close-modal-btn");
-
-function openModal() {
-	modal.classList.remove("hide");
-}
-
-function closeModal(e, clickedOutside) {
-	if (clickedOutside) {
-		if (e.target.classList.contains("modal-overlay"))
-			modal.classList.add("hide");
-	} else modal.classList.add("hide");
-}
-
-openBtn.addEventListener("click", openModal);
-modal.addEventListener("click", (e) => closeModal(e, true));
-closeBtn.addEventListener("click", closeModal);
-
-
-
-
-
-
-// const popupLinks = document.querySelectorAll('.popup-link');
-// const lockPadding = document.querySelectorAll('.lock-padding');
-
-// let unlock = true;
-
-// const timeout = 500;
-
-// if (popupLinks.length > 0) {
-//     for (let index = 0; index < popupLinks.length; index++) {
-//         const popupLink = popupLinks[index];
-//         popupLink.addEventListener("click", function(e) {
-//             const popupName = popupLink.getAttribute('href').replace('#', '');
-//             const curentPopup = document.getElementById(popupName);
-//             popupOpen(curentPopup);
-//             e.preventDefault();
-//         });
-//     }
-// }
-
-// const popupCloseIcon = document.querySelectorAll('.close-popup');
-// if (popupCloseIcon.length > 0) {
-//     for (let index = 0; index < popupCloseIcon.length; index++) {
-//         const el = popupCloseIcon[index];
-//         el.addEventListener('click', function (e) {
-//             popupClose(el.closest('.popup'));
-//             e.preventDefault();
-//         });
-//     }
-// }
-
-// function popupOpen(curentPopup) {
-//     if (curentPopup && unlock) {
-//         const popupActive = document.querySelector('.popup.open');
-//         if (popupActive) {
-//             popupClose(popupActive, false);
-//         } else {
-//             bodyLock();
-//         }
-//         curentPopup.classList.add('open');
-//         curentPopup.addEventListener("click", function (e) {
-//             if (!e.target.closest('.popup__content')) {
-//                 popupClose(e.target.closest('.popup'));
-//             }
-//         });
-//     }
-// }
-
-// function popupClose(popupActive, doUnlock = true) {
-//     if (unlock) {
-//         popupActive.classList.remove('open');
-//         if (doUnlock) {
-//             bodyUnlock();
-//         }
-//     }
-// }
-
-// function bodyLock() {
-//     const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
-    
-//     if (lockPadding.length > 0) {
-//         for (let index = 0; index < lockPadding.length; index++) {
-//             const el = lockPadding[index];
-//             el.style.paddingRight = lockPaddingValue;
-//         }
-//     }
-
-//     for (let index = 0; index < lockPadding.length; index++) {
-//         const el = lockPadding[index];
-//         el.getElementsByClassName.paddingRight = lockPaddingValue;
-//     }
-//     body.style.paddingRight = lockPaddingValue;
-//     body.classList.add('lock');
-
-//     unlock = false;
-
-//     setTimeout(function () {
-//         unlock = true;
-//     }, timeout);
-// }
-
-// function bodyUnlock() {
-//     setTimeout(function () {
-//         if (lockPadding.length > 0) {
-//             for (let index = 0; index < lockPadding.length; index++) {
-//                 const el = lockPadding[index];
-//                 el.style.paddingRight = '0px';
-//             }
-//         }
-//         body.style.paddingRight = '0px';
-//         body.classList.remove('lock');
-//     }, timeout);
-
-//     unlock = false;
-//     setTimeout(function () {
-//         unlock = true;
-//     }, timeout);
-// }
-
-// document.addEventListener('keydown', function (e) {
-//     if (e.which === 27) {
-//         const popupActive = document.querySelector('.popup.open');
-//         popupClose(popupActive);
-//     }
-// })
-
-// // polifiles for popup window
-
-// (function () {
-//     // проверяем поддержку
-//     if (!Element.prototype.closest) {
-//         // реализуем
-//         Element.prototype.closest = function(css) {
-//             var node = this;
-//             while (node) {
-//                 if (node.matches(css)) return node;
-//                 else npde = node.parentElement;
-//             }
-//             return null;
-//         };
-//     }
-// })();
-// (function () {
-//     // проверяем поддержку
-//     if (!Element.prototype.matches) {
-//         // определяем свойство
-//         Element.prototype.matches = Element.prototype.matchesSelector ||
-//             Element.prototype.webkitMatchesSelector ||
-//             Element.prototype.mozMatchesSelector ||
-//             Element.prototype.msMatchesSelector;
-//     }
-// })();
+// адаптив модального окна
+// Нормально переименовать все переменные
+// отверстать в нормальном размере те самые маленькие кнопочки стрелочки.
