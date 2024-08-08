@@ -4,17 +4,17 @@ inputName = document.querySelectorAll('.footer_input_name'),
 inputComments = document.querySelector('.footer_input_comments')
 sendBtn = document.querySelector("#submit_button"),
 
-openBtn = document.querySelector(".main-page-button"),
+openBtn = document.querySelector(".main_page_button"),
 openBtnModal = document.querySelectorAll(".abonements_card_button"),
-modal = document.querySelector(".modal-overlay"),
-closeBtn = document.querySelector(".close-modal-btn"),
+modal = document.querySelector(".modal_overlay"),
+closeBtn = document.querySelector(".close_modal_btn"),
 
-menus = document.querySelectorAll('.menu-item'),
-menuButton = document.querySelector('#burger-checkbox'),
+menus = document.querySelectorAll('.menu_item'),
+menuButton = document.querySelector('#burger_checkbox'),
 
 body = document.body,
 
-menuItems = document.querySelectorAll('.menu-item'),
+menuItems = document.querySelectorAll('.menu_item'),
 
 modalForm = document.querySelector('#modal_form'),
 feedbackForm = document.querySelector('#footer_form');
@@ -63,11 +63,11 @@ if (modalForm) {
 
             modalForm.reset(); // Очищаем поля формы
             closeModal();
-            openBtn.classList.add("no-visibillity");
+            openBtn.classList.add("no_visibillity");
             openBtn.disabled = true;
     
             openBtnModal.forEach(button => {
-                button.classList.add("no-visibillity-buttons");
+                button.classList.add("no_visibillity_buttons");
                 button.disabled = true;
             });
             
@@ -98,7 +98,7 @@ if (feedbackForm) {
 // функция открытия модального окна
 function openModal() {
 	modal.classList.remove("hide");
-    document.body.classList.add('no-scroll');
+    document.body.classList.add('no_scroll');
     clearForm();
 }
 
@@ -112,12 +112,12 @@ function clearForm() {
 
 function closeModal(e, clickedOutside) {
 	if (clickedOutside) {
-		if (e.target.classList.contains("modal-overlay"))
+		if (e.target.classList.contains("modal_overlay"))
 			modal.classList.add("hide");
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove('no_scroll');
     } else {
         modal.classList.add("hide");
-        document.body.classList.remove('no-scroll');
+        document.body.classList.remove('no_scroll');
     }
 }
 
@@ -204,9 +204,9 @@ for (const menu of menus) {
 // бурегр меню не будет скролиться если оно открыто
 function toggleMenu() {
     if (menuButton.checked) {
-        body.classList.add('no-scroll');
+        body.classList.add('no_scroll');
     } else {
-        body.classList.remove('no-scroll');
+        body.classList.remove('no_scroll');
     }
 }
 
@@ -224,6 +224,4 @@ menuItems.forEach(item => {
 
 // Сделать осталось:
 
-// адаптив модального окна
-// Нормально переименовать все переменные
 // отверстать в нормальном размере те самые маленькие кнопочки стрелочки.
